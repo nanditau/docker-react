@@ -1,0 +1,23 @@
+version: '3'
+services:
+  react-app:
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      context: .
+      dockerfile: Dockerfile.DEV
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/frontend/node_modules 
+      - .:/app/frontend
+  tests:
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      context: .
+      dockerfile: Dockerfile.DEV
+    volumes:
+      - /app/frontend/node_modules 
+      - .:/app/frontend
+    command: ["npm","test"]
