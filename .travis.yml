@@ -4,6 +4,6 @@ services:
 before_install:
   - docker build -t nanditau/docker-react:DEV -f Dockerfile.DEV .
 script:
-  - docker run -e CI=true USERNAME/docker-react npm test -- --coverage
+  - docker run -e CI=true nanditau/docker-react npm test -- --coverage
 language: generic
   
