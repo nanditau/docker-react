@@ -5,7 +5,7 @@ services:
 before_install:
   - docker build -t nanditau/docker-react:DEV -f Dockerfile.DEV .
 script:
-  - docker run -e CI=true nanditau/docker-react npm test
+  - docker run -e CI=true nanditau/docker-react:DEV npm test
 deploy:
   provider: elasticbeanstack
   region: "us-east-2"
